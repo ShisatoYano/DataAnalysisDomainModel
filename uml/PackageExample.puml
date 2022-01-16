@@ -1,0 +1,32 @@
+@startuml
+
+package "注文" {
+    class 注文クラス
+}
+
+package "出荷" {
+    class 出荷クラス
+    注文クラス <. 出荷クラス
+}
+
+package "請求" {
+    class 請求クラス
+    出荷クラス <. 請求クラス
+}
+
+package "入金" {
+    class 入金クラス
+    請求クラス <. 入金クラス
+}
+
+package "顧客" {
+    class 顧客クラス
+    注文クラス ..> 顧客クラス
+}
+
+package "商品" {
+    class 商品クラス
+    注文クラス ..> 商品クラス
+}
+
+@enduml
